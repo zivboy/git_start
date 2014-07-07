@@ -1,2 +1,129 @@
 Start on 2014-07-07
 1.add ssm-z
+https://github.com/zivboy/git_start.git
+
+--script
+
+--add
+$ git add readme.txt
+$ git commit -m "append GPL"
+
+--back to the last
+$ git reset --hard HEAD^
+--back to ID
+$ git reset --hard 3628164
+--find ID
+$ git reflog
+
+--status
+$ git status
+
+--diff
+$ git diff HEAD -- readme.txt
+
+--del
+$ git rm test.txt
+$ git commit -m "remove test.txt"
+--get back
+$ git checkout -- test.txt
+
+--discord the modify from workspace
+$ git checkout -- readme.txt
+--discord the modify from stage
+$ git reset HEAD readme.txt
+
+--log
+$ git log
+
+--push to remote
+$ git push origin master
+
+--relevent with remote
+$ git remote add origin git@server-name:path/repo-name.git
+
+--clone to local
+$ git clone git@github.com:michaelliao/gitskills.git
+
+--create branch 'dev'
+$ git branch dev
+--Switched to branch 'dev'
+$ git checkout dev
+--list all branches
+$ git branch
+
+--merge branches with lost branche's his
+$ git checkout master
+$ git merge dev
+
+--del branches
+$ git branch -d dev
+
+--merge branches details
+$ git log --graph --pretty=oneline --abbrev-commit
+
+--merge branches without lost branche's his 
+$ git merge --no-ff -m "merge with no-ff" dev
+
+--bug branch
+--------------------------
+--Saved working directory
+$ git stash
+
+$ git checkout master
+$ git checkout -b issue-101
+
+$ git add readme.txt
+$ git commit -m "fix bug 101"
+
+$ git checkout master
+$ git merge --no-ff -m "merged bug fix 101" issue-101
+$ git branch -d issue-101
+
+$ git checkout dev
+$ git status
+
+--recover with deleting the copy
+$ git stash list
+$ git stash pop
+--recover without deleting the copy
+$ git stash list
+$ git stash apply stash@{0}
+--------------------------
+
+--feature branch
+--force del
+git branch -D feature-vulcan
+
+--get remote
+$ git remote -v
+
+--push branch
+$ git push origin master
+$ git push origin dev
+
+--create local clone dev branch
+$ git checkout -b dev origin/dev
+
+--Branch dev set up to track remote branch dev from origin
+$ git branch --set-upstream dev origin/dev
+$ git pull
+
+$ git commit -m "merge & fix hello.py"
+$ git push origin dev
+
+--add tag to HEAD
+$ git tag v1.0
+--add tag to ver.
+$ git tag v0.9 6224937
+$ git tag -a v0.1 -m "version 0.1 released" 3628164
+--del tag
+$ git tag -d v0.1
+$ git push origin :refs/tags/v0.1
+--push tag
+$ git push origin v1.0
+--push all tags
+$ git push origin --tags
+--find tag
+$ git tag
+--see tag details
+$ git show tag
